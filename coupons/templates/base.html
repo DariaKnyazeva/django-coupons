@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en">
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>{% block title %}{% endblock %}</title>
+  
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="/media/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/media/css/text.css" />
+    <link rel="stylesheet" type="text/css" href="/media/css/960.css" />
+    <link rel="stylesheet" type="text/css" href="/media/css/style.css" />
+    {% block extra_styles %} {% endblock %}
+{% endblock %}
+
+{% block scripts %}    
+    {% block extra_scripts %} {% endblock %}
+{% endblock %}
+</head>
+
+<body>
+
+{% block wrapper %}
+
+<div id="container" class="container_12">
+  {% block header %}
+	<div id="logo" class="grid_2">        
+	</div>
+	
+	<div id="nav" class="grid_10">
+        <div class="grid_6 alpha">
+            <ul id="navmain">
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'coupon_sheet_add' %}">Add a Coupon Sheet</a></li>
+                <li><a href="{% url 'coupon_add' %}">Add a Coupon</a></li>                            
+            </ul>
+        </div>
+
+        <div class="grid_3">
+
+                {% if user.is_authenticated %}
+                     Welcome, {{ user.username }}
+                     <a href="#">Logout</a> 
+                {% else %}
+                    <a href="#">Signup</a>
+                    <a href="#">Login</a>
+                {% endif %}
+            </ul>
+        </div>        
+
+	</div><!-- /nav -->
+    <div class="clear"></div>
+  {% endblock header %}
+
+  {% block contents %} 
+  {% endblock contents %}
+
+</div>
+
+  {% block footer %}
+     
+  {% endblock footer %}
+
+<!-- / container -->
+{% endblock wrapper %}
+
+</body>
+</html>

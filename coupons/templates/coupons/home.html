@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %} All Coupon sheets {% endblock %}
+
+{% block contents %}
+
+    <h1>Coupon sheets:</h1>
+    <ul>
+        {% for sheet in sheets %}
+            <li>
+                <a href="{% url 'sheet_detail' sheet.pk %}">{{ sheet.heading }}</a>
+                <a href="{{ sheet.get_absolute_url }}pdf/">View PDF</a>
+                <a href="{% url 'coupon_sheet_edit' sheet.pk %}">Edit</a>
+            </li>
+        {% empty %}
+            <p>There is currently no any coupon sheet.</p>
+        {% endfor %}
+    </ul>    
+    
+    <h1>Coupons:</h1>
+    <ul>
+        {% for coupon in coupons %}
+            <li>
+                <a href="{% url 'coupon_detail' coupon.pk %}">{{ coupon.heading }}</a>
+                <a href="{% url 'coupon_edit' coupon.pk %}">Edit</a>
+            </li>
+        {% empty %}
+            <p>There is currently no any coupons.</p>
+        {% endfor %}
+    </ul>         
+ 
+{% endblock %}

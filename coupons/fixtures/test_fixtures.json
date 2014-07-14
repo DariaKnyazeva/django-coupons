@@ -1,0 +1,55 @@
+[
+    {
+        "pk": 1, 
+        "model": "coupons.coupon", 
+        "fields": {
+            "restrictions": [], 
+            "footer": "dfsf",   
+            "rank": 2, 
+            "inclusions": [], 
+            "details": "sfdf", 
+            "is_printed": true, 
+            "heading": "My Coupon"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "coupons.coupon", 
+        "fields": {
+            "restrictions": [], 
+            "footer": "jdsjflks lslks jlsj",  
+            "rank": 1,  
+            "inclusions": [], 
+            "details": "sdhfs skhfsdkhfkjshksdj sdkhfkdsjfh\r\nldfjsj slflksd jlsdkjlsfjl \r\nldjfls ls ", 
+            "is_printed": true, 
+            "heading": "terr tdhf  ksdfksh s sdhfsfh"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "coupons.sheet", 
+        "fields": {
+            "rows": 2, 
+            "heading": "Discounts", 
+            "cols": 2
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "coupons.couponsheet", 
+        "fields": {
+            "count": 3, 
+            "coupon": 1, 
+            "sheet": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "coupons.couponsheet", 
+        "fields": {
+            "count": 2, 
+            "coupon": 2, 
+            "sheet": 1
+        }
+    }
+]

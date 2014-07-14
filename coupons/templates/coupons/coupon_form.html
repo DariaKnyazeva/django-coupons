@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %} {% if is_edit %}Edit{% else %}Add{% endif %} a Coupon{% endblock %}
+
+{% block contents %}
+     <h1>{% if is_edit %}Edit{% else %}Add{% endif %} a Coupon </h1>
+     {{ form.errors }}
+     <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+         <table>         
+             {{ form }}        
+             <tr><td><input type="submit" name="Submit"/></td></tr>
+         </table>
+     </form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} All Coupon sheets {% endblock %}
+
+{% block contents %}
+
+    <h1>Coupon sheets:</h1>
+    <ul>
+        {% for sheet in object_list %}
+            <li>
+                {{ sheet }}
+            </li>
+        {% empty %}
+            <p>There is currently no any coupon sheet.</p>
+        {% endfor %}
+    </ul>         
+ 
+{% endblock %}

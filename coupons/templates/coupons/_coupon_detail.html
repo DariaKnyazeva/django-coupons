@@ -1,0 +1,40 @@
+<div class="coupon">
+    {% if for_pdf %}<table border="1"><tr><td>{% endif %}
+        <div class="left_coupon_col"  style="border-left: dashed 2px;">                        
+                <span class="coupon_image_container">
+                {% if object.image %}
+                <img class="coupon_image"
+                     src="/media/{{ object.image.path.thumbnail.relative_url }}"
+                     width="{{object.image.path.thumbnail.width}}"
+                     height="{{object.image.path.thumbnail.height}}"/>
+                {% endif %}               
+                </span>
+                <span>Expires:</span>
+                <span>{{ object.expires|date:"F d, Y" }}</span>            
+        </div>
+        
+        {% if for_pdf %}</td><td>{% endif %}
+        
+        <div class="right_coupon_col">                
+                <span class=coupon_heading>{{ object.heading }}</span>
+                <span class=coupon_offer>{{ object.offer }}</span>
+                <span class=coupon_details>{{ object.details }}</span>
+                {% ifnotequal object.restrictions.all.count 0 %}
+                <span>Restrictions:
+                    {% for restriction in object.restrictions.all %}
+                        {{ restriction.name }}
+                    {% endfor %}
+                </span>
+                {% endifnotequal %}
+                {% ifnotequal object.inclusions.all.count 0 %}
+                <span>Inclusions:
+                    {% for inclusion in object.inclusions.all %}
+                        {{ inclusion.name }}
+                    {% endfor %}
+                </span>
+                {% endifnotequal %}
+                <span class="coupon_footer">{{ object.footer }}</span>           
+            
+        </div>
+  {% if for_pdf %}</td></tr></table>{% endif %}  
+</div>
